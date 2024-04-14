@@ -7,8 +7,11 @@ environment:
   sdk: '>=3.3.3 <4.0.0'
 
 dependencies:
+  firebase_auth: ^4.19.1
+  firebase_core: ^2.29.0
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.5
 
 dev_dependencies:
   flutter_test:
@@ -17,3 +20,21 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/apple.png
+    - assets/images/bottom_cap.PNG
+    - assets/images/get_started.png
+    - assets/images/google.png
+    - assets/images/top_cap.PNG
+    - assets/images/top_cap2.PNG
+  fonts:
+    - family: Sora
+      fonts:
+        - asset: assets/fonts/Sora-Bold.ttf
+        - asset: assets/fonts/Sora-ExtraBold.ttf
+        - asset: assets/fonts/Sora-ExtraLight.ttf
+        - asset: assets/fonts/Sora-Light.ttf
+        - asset: assets/fonts/Sora-Medium.ttf
+        - asset: assets/fonts/Sora-Regular.ttf
+        - asset: assets/fonts/Sora-SemiBold.ttf
+        - asset: assets/fonts/Sora-Thin.ttf

@@ -9,9 +9,13 @@ environment:
 dependencies:
   firebase_auth: ^4.19.1
   firebase_core: ^2.29.0
+  firebase_database: ^10.5.5
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.5
+  shared_preferences: ^2.2.3 
+  cached_network_image: ^3.3.1
+  qr_flutter: ^4.1.0
 
 dev_dependencies:
   flutter_test:
@@ -27,6 +31,7 @@ flutter:
     - assets/images/google.png
     - assets/images/top_cap.PNG
     - assets/images/top_cap2.PNG
+    - assets/images/user_photo.png
   fonts:
     - family: Sora
       fonts:

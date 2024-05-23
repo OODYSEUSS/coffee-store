@@ -1,30 +1,29 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:coffee_store/bloc/home/bottom_navigation_cubit.dart';
+import 'package:coffee_store/widgets/my_home_appbar.dart';
+import 'package:coffee_store/widgets/my_menu_grid.dart';
 import 'package:flutter/material.dart';
+import 'package:coffee_store/widgets/my_category_card.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  signUserOut(BuildContext context) async {
-    await FirebaseAuth.instance.signOut();
-    Navigator.pushReplacementNamed(context, '/');
-  }
-
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async => false,
+    return BlocProvider(
+      create: (context) => BottomNavigationCubit(),
       child: Scaffold(
-        backgroundColor: Colors.white,
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: () => signUserOut(context),
-                child: const Text('Sign Out'),
-              )
-            ],
-          ),
+        backgroundColor: const Color(0xFFF9F9F9),
+        // backgroundColor: Colors.black,
+        body: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            MyHomeAppBar(),
+            const SizedBox(height: 10),
+            // const MyCategory(),
+            const SizedBox(height: 10),
+            MyMenuGrid(),
+          ],
         ),
       ),
     );

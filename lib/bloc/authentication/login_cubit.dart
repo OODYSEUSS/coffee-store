@@ -53,17 +53,3 @@ class LoginCubit extends Cubit<LoginState> {
     }
   }
 }
-
-      //   Navigator.pop(context);
-      //   Navigator.pushReplacementNamed(context, '/home');
-      //   clearTextFieldAuth();
-      //   emit(LoginState.success);
-      // } on FirebaseAuthException catch (e) {
-      //   Navigator.pop(context);
-      //   clearTextFieldAuth();
-      //   if (e.code == 'user-not-found') {
-      //     print('No user found for that email');
-      //   } else if (e.code == 'wrong-password') {
-      //     print('Wrong password buddy');
-      //   }
-      //   emit(LoginState.error);

@@ -1,6 +1,6 @@
+import 'package:coffee_store/screens/home/home_navigation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:coffee_store/screens/home/home_screen.dart';
 import 'package:coffee_store/screens/onboarding/onboarding_screen.dart';
 import 'package:coffee_store/bloc/authentication/auth_cubit.dart';
 
@@ -28,7 +28,8 @@ class AuthScreen extends StatelessWidget {
     return BlocBuilder<AuthCubit, AuthState>(
       builder: (context, authState) {
         if (authState == AuthState.authenticated) {
-          return const HomeScreen();
+          // return const HomeScreen();
+          return const HomeNavigation();
         } else {
           return const OnboardingScreen();
         }

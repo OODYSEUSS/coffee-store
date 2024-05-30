@@ -13,7 +13,12 @@
           "package_name": "com.example.coffee_store"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "140607405757-co30k1ohkuncsulb7qjtojjod5tnlicf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAqcGHgS_geb67jK9EViFIC8-yXCR5ZgDU"
@@ -21,7 +26,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "140607405757-co30k1ohkuncsulb7qjtojjod5tnlicf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "140607405757-70n20k061ram742tasa37ha4n5uj2djl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.coffeeStore"
+              }
+            }
+          ]
         }
       }
     }

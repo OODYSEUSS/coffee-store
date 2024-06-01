@@ -32,8 +32,15 @@ class MyImageButton extends StatelessWidget {
   }
 }
 
-class MyGoogleAppleButtons extends StatelessWidget {
-  const MyGoogleAppleButtons({super.key});
+class MyGoogleFacebookButtons extends StatelessWidget {
+  final Function()? onGoogleTap;
+  final Function()? onFacebookTap;
+
+  const MyGoogleFacebookButtons({
+    super.key,
+    required this.onGoogleTap,
+    required this.onFacebookTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -42,14 +49,14 @@ class MyGoogleAppleButtons extends StatelessWidget {
       children: [
         MyImageButton(
           imagePath: 'assets/images/google.png',
-          onTap: () {},
+          onTap: onGoogleTap,
         ),
         const SizedBox(
           width: 20,
         ),
         MyImageButton(
-          imagePath: 'assets/images/apple.png',
-          onTap: () {},
+          imagePath: 'assets/images/facebook.png',
+          onTap: onFacebookTap,
         ),
       ],
     );

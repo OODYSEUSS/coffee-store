@@ -30,12 +30,48 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
       );
 
       emit(ResetPasswordState.success);
-      Navigator.pushReplacementNamed(context, '/login');
+      Navigator.pop(context);
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            backgroundColor: Color.fromRGBO(249, 249, 249, 1.0),
+            title: Text('Success'),
+            content: Text('Password reset email sent.'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  Navigator.pushReplacementNamed(context, '/login');
+                },
+                child: Text('OK'),
+              ),
+            ],
+          );
+        },
+      );
     } on FirebaseAuthException catch (e) {
+      Navigator.pop(context);
       print(e.code);
       emit(ResetPasswordState.error);
-    } finally {
-      Navigator.pop(context);
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            backgroundColor: Color.fromRGBO(249, 249, 249, 1.0),
+            title: Text('Error'),
+            content: Text('Password reset failed. ${e.message}'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text('OK'),
+              ),
+            ],
+          );
+        },
+      );
     }
   }
 

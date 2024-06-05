@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coffee_store/bloc/home/cart_cubit.dart';
 import 'package:coffee_store/screens/home/item_screen.dart';
 import 'package:coffee_store/screens/home/qr_code_screen.dart';
+import 'package:coffee_store/widgets/my_button.dart';
 import 'package:coffee_store/widgets/my_cart_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -60,6 +61,7 @@ class CartScreen extends StatelessWidget {
                   },
                 ),
               ),
+              // MyButton(onPressed: () {}, text: 'xyi'),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: ElevatedButton(

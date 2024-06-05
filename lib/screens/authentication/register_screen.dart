@@ -1,12 +1,11 @@
 import 'package:coffee_store/bloc/authentication/register_cubit.dart';
 import 'package:coffee_store/widgets/my_button.dart';
-import 'package:coffee_store/widgets/my_google_apple_buttons.dart';
 import 'package:coffee_store/widgets/my_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Register extends StatelessWidget {
-  const Register({Key? key});
+  const Register({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -51,72 +50,63 @@ class RegisterScreen extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(
-          height: 40,
-        ),
-        const Text(
-          'Register',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 34,
-            fontFamily: 'Sora',
-            fontWeight: FontWeight.w400,
-          ),
-        ),
-        const SizedBox(
-          height: 15,
-        ),
-        MyTextField(
-          controller: registrationCubit.emailController,
-          hintText: 'Email',
-          obscureText: false,
-        ),
-        const SizedBox(
-          height: 15,
-        ),
-        MyTextField(
-          controller: registrationCubit.passwordController,
-          hintText: 'Password',
-          obscureText: true,
-        ),
-        const SizedBox(
-          height: 15,
-        ),
-        MyTextField(
-          controller: registrationCubit.confirmPasswordController,
-          hintText: 'Confirm password',
-          obscureText: true,
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        BlocBuilder<RegistrationCubit, RegistrationState>(
-          // jотображаем кнопку регистрации от состояния RegistrationCubit
-          builder: (context, state) {
-            return MyButton(
-              onPressed: () {
-                if (state != RegistrationState.loading) {
-                  registrationCubit.signUserUp(context);
-                }
-              },
-              text: 'Sign Up',
-            );
-          },
-        ),
         Expanded(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                'Or sign up with',
+              const Text(
+                'Register',
                 style: TextStyle(
-                  color: Colors.grey.shade500,
-                  fontSize: 20,
+                  color: Colors.black,
+                  fontSize: 34,
                   fontFamily: 'Sora',
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
-              const MyGoogleAppleButtons(),
+              const SizedBox(height: 15),
+              MyTextField(
+                controller: registrationCubit.emailController,
+                hintText: 'Email',
+                obscureText: false,
+              ),
+              const SizedBox(height: 15),
+              MyTextField(
+                controller: registrationCubit.passwordController,
+                hintText: 'Password',
+                obscureText: true,
+              ),
+              const SizedBox(height: 15),
+              MyTextField(
+                controller: registrationCubit.confirmPasswordController,
+                hintText: 'Confirm password',
+                obscureText: true,
+              ),
+              const SizedBox(height: 15),
+              MyTextField(
+                controller: registrationCubit.nameController,
+                hintText: 'Name',
+                obscureText: false,
+              ),
+              const SizedBox(height: 15),
+              MyTextField(
+                controller: registrationCubit.phoneController,
+                hintText: 'Phone',
+                obscureText: false,
+              ),
+              const SizedBox(height: 15),
+              const SizedBox(height: 20),
+              BlocBuilder<RegistrationCubit, RegistrationState>(
+                builder: (context, state) {
+                  return MyButton(
+                    onPressed: () {
+                      if (state != RegistrationState.loading) {
+                        registrationCubit.signUserUp(context);
+                      }
+                    },
+                    text: 'Sign Up',
+                  );
+                },
+              ),
             ],
           ),
         ),

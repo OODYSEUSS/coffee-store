@@ -84,7 +84,7 @@ class ItemScreen extends StatelessWidget {
             height: 15,
           ),
           Text(
-            coffee.description ?? 'No description available.',
+            coffee.description,
             style: const TextStyle(
               color: Color(0xFF9B9B9B),
               fontFamily: 'Sora',
@@ -131,7 +131,7 @@ class ItemScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                Spacer(),
+                const Spacer(),
                 ElevatedButton(
                   onPressed: () {
                     context.read<CartCubit>().addToCart(coffee);

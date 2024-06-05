@@ -1,6 +1,6 @@
 import 'package:coffee_store/bloc/authentication/login_cubit.dart';
 import 'package:coffee_store/widgets/my_button.dart';
-import 'package:coffee_store/widgets/my_google_apple_buttons.dart';
+import 'package:coffee_store/widgets/my_google_facebook_buttons.dart';
 import 'package:coffee_store/widgets/my_text_button.dart';
 import 'package:coffee_store/widgets/my_text_field.dart';
 import 'package:flutter/material.dart';
@@ -54,84 +54,94 @@ class LoginScreen extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(
-          height: 30,
-        ),
-        const Text(
-          'Login',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 34,
-            fontFamily: 'Sora',
-            fontWeight: FontWeight.w400,
-          ),
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        MyTextField(
-          controller: emailControllerAuth,
-          hintText: 'Email',
-          obscureText: false,
-        ),
-        const SizedBox(
-          height: 15,
-        ),
-        MyTextField(
-          controller: passwordControllerAuth,
-          hintText: 'Password',
-          obscureText: true,
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              MyTextButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/reset');
-                },
-                text: 'Reset password',
-              ),
-              MyTextButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/register');
-                },
-                text: 'Sign up for an account.',
-              )
-            ],
-          ),
-        ),
-        BlocBuilder<LoginCubit, LoginState>(
-          builder: (context, state) {
-            return MyButton(
-              onPressed: () {
-                if (state != LoginState.loading) {
-                  loginCubit.signIn(
-                    emailControllerAuth.text,
-                    passwordControllerAuth.text,
-                    context,
-                  );
-                }
-              },
-              text: 'Sign In',
-            );
-          },
-        ),
         Expanded(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                'Or sign in with',
+              const Text(
+                'Login',
                 style: TextStyle(
-                  color: Colors.grey.shade500,
-                  fontSize: 20,
+                  color: Colors.black,
+                  fontSize: 34,
                   fontFamily: 'Sora',
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
-              const MyGoogleAppleButtons(),
+              const SizedBox(
+                height: 20,
+              ),
+              MyTextField(
+                controller: emailControllerAuth,
+                hintText: 'Email',
+                obscureText: false,
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              MyTextField(
+                controller: passwordControllerAuth,
+                hintText: 'Password',
+                obscureText: true,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    MyTextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/reset');
+                      },
+                      text: 'Reset password',
+                    ),
+                    MyTextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/register');
+                      },
+                      text: 'Sign up for an account.',
+                    )
+                  ],
+                ),
+              ),
+              BlocBuilder<LoginCubit, LoginState>(
+                builder: (context, state) {
+                  return MyButton(
+                    onPressed: () {
+                      if (state != LoginState.loading) {
+                        loginCubit.signIn(
+                          emailControllerAuth.text,
+                          passwordControllerAuth.text,
+                          context,
+                        );
+                      }
+                    },
+                    text: 'Sign In',
+                  );
+                },
+              ),
+              Container(
+                height: 150,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text(
+                      'Or sign in with',
+                      style: TextStyle(
+                        color: Colors.grey.shade500,
+                        fontSize: 20,
+                        fontFamily: 'Sora',
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    MyGoogleFacebookButtons(
+                      onGoogleTap: () {
+                        loginCubit.signInWithGoogle(context);
+                      },
+                      onFacebookTap: () {},
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

@@ -4,10 +4,8 @@ import 'package:coffee_store/widgets/my_text_search_field.dart';
 
 class MyHomeAppBar extends StatelessWidget {
   @override
-  @override
   Widget build(BuildContext context) {
     return AppBar(
-      // toolbarHeight: MediaQuery.of(context).size.height * 0.254,
       backgroundColor: Colors.transparent,
       elevation: 0,
       flexibleSpace: Container(

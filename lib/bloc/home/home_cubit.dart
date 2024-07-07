@@ -6,10 +6,10 @@ import 'dart:convert';
 
 enum CoffeeState { initial, loading, loaded, error }
 
-List<Coffee> coffeeList = [];
-List<Coffee> filteredCoffeeList = [];
-
 class CoffeeCubit extends Cubit<CoffeeState> {
+  List<Coffee> coffeeList = [];
+  List<Coffee> filteredCoffeeList = [];
+
   CoffeeCubit() : super(CoffeeState.initial);
 
   Future<void> getCoffeeMenu() async {

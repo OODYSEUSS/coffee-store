@@ -34,7 +34,7 @@ flutter:
     - assets/images/google.png
     - assets/images/top_cap.PNG
     - assets/images/top_cap2.PNG
-    - assets/images/user_photo.png
+    - assets/images/user_photo.jpeg
   fonts:
     - family: Sora
       fonts:

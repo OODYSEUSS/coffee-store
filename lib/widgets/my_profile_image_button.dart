@@ -13,7 +13,7 @@ class MyProfileImageButton extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           image: const DecorationImage(
-            image: AssetImage('assets/images/user_photo.png'),
+            image: AssetImage('assets/images/user_photo.jpeg'),
           ),
         ),
       ),

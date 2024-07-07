@@ -28,7 +28,7 @@ class MyHomeAppBar extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Hi, User!',
+                    'Wake up!',
                     style: TextStyle(
                       fontSize: 16,
                       fontFamily: 'Sora',

@@ -25,15 +25,14 @@ class ProfileScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  // Профильное изображение
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 50,
-                    backgroundImage: AssetImage('assets/images/user_photo.png'),
+                    backgroundImage:
+                        AssetImage('assets/images/user_photo.jpeg'),
                   ),
                   const SizedBox(height: 16),
-                  // Карточка с информацией о пользователе
                   Card(
-                    color: Colors.white,
+                    // color: Color(f),
                     elevation: 4,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
@@ -45,16 +44,16 @@ class ProfileScreen extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Icon(Icons.person, color: Colors.grey),
+                              const Icon(Icons.person, color: Colors.grey),
                               const SizedBox(width: 8),
                               Text('${state.name}',
-                                  style: TextStyle(fontSize: 18)),
+                                  style: const TextStyle(fontSize: 18)),
                             ],
                           ),
                           const SizedBox(height: 8),
                           Row(
                             children: [
-                              Icon(Icons.email, color: Colors.grey),
+                              const Icon(Icons.email, color: Colors.grey),
                               const SizedBox(width: 8),
                               Text('${state.email}',
                                   style: TextStyle(fontSize: 18)),
@@ -63,10 +62,10 @@ class ProfileScreen extends StatelessWidget {
                           const SizedBox(height: 8),
                           Row(
                             children: [
-                              Icon(Icons.phone, color: Colors.grey),
+                              const Icon(Icons.phone, color: Colors.grey),
                               const SizedBox(width: 8),
                               Text('${state.phone}',
-                                  style: TextStyle(fontSize: 18)),
+                                  style: const TextStyle(fontSize: 18)),
                             ],
                           ),
                         ],

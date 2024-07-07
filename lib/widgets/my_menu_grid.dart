@@ -11,6 +11,7 @@ class MyMenuGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CoffeeCubit, CoffeeState>(
       builder: (context, state) {
+        var filteredCoffeeList = context.read<CoffeeCubit>().filteredCoffeeList;
         if (state == CoffeeState.loading) {
           return const Center(child: CircularProgressIndicator());
         } else if (state == CoffeeState.loaded) {

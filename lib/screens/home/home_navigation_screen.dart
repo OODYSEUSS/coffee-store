@@ -23,7 +23,10 @@ class HomeNavigation extends StatelessWidget {
         backgroundColor: const Color(0xFFF9F9F9),
         body: BlocBuilder<BottomNavigationCubit, int>(
           builder: (context, currentIndex) {
-            return _pages[currentIndex];
+            return IndexedStack(
+              index: currentIndex,
+              children: _pages,
+            );
           },
         ),
         bottomNavigationBar: MyBottomNavigationBar(),

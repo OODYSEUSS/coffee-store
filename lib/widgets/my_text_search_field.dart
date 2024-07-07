@@ -20,17 +20,24 @@ class MyTextSearchField extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: TextField(
         controller: controller,
-        onChanged: (value) {
-          context.read<CoffeeCubit>().filterCoffeeList(value);
-        },
+        style: const TextStyle(
+          color: Colors.white, // Устанавливаем белый цвет для текста
+        ),
         decoration: InputDecoration(
           fillColor: const Color(0xFF313131),
           filled: true,
           hintText: hintText,
-          suffixIcon: const Icon(
-            Icons.search_rounded,
-            size: 30,
-            color: Color(0xFF989898),
+          suffixIcon: IconButton(
+            icon: const Icon(
+              Icons.search_rounded,
+              size: 30,
+              color: Color(0xFF989898),
+            ),
+            onPressed: () {
+              context
+                  .read<CoffeeCubit>()
+                  .filterCoffeeList(searchController.text);
+            },
           ),
           hintStyle: const TextStyle(
             color: Color(0xFF989898),
